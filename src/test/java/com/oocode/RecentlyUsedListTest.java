@@ -26,4 +26,23 @@ public class RecentlyUsedListTest {
 		assertThat(recentlyUsedList.retrieveItem(0), equalTo("12345"));
 	}
 
+	@Test
+	public void lastItemShouldBeFirstInList() {
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.addElement("1");
+		recentlyUsedList.addElement("2");
+		recentlyUsedList.addElement("3");
+		assertThat(recentlyUsedList.retrieveItem(0), equalTo("3"));
+	}
+
+	@Test
+	public void itemsShouldBeStoredInReverseOrder(){
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.addElement("1");
+		recentlyUsedList.addElement("2");
+		recentlyUsedList.addElement("3");
+		assertThat(recentlyUsedList.retrieveItem(0), equalTo("3"));
+		assertThat(recentlyUsedList.retrieveItem(1), equalTo("2"));
+		assertThat(recentlyUsedList.retrieveItem(2), equalTo("1"));
+	}
 }
