@@ -10,7 +10,7 @@ public class RecentlyUsedListTest {
 	@Test
 	public void listShouldBeEmptyWhenInitialised(){
 		assertThat(new RecentlyUsedList().isEmpty(), equalTo(true));
-	};
+	}
 
 	@Test
 	public void listCanBeExtended(){
@@ -44,5 +44,16 @@ public class RecentlyUsedListTest {
 		assertThat(recentlyUsedList.retrieveItem(0), equalTo("3"));
 		assertThat(recentlyUsedList.retrieveItem(1), equalTo("2"));
 		assertThat(recentlyUsedList.retrieveItem(2), equalTo("1"));
+	}
+
+	@Test
+	public void itemsShouldBeUnique(){
+		RecentlyUsedList recentlyUsedList = new RecentlyUsedList();
+		recentlyUsedList.addElement("1");
+		recentlyUsedList.addElement("2");
+		recentlyUsedList.addElement("1");
+		assertThat(recentlyUsedList.retrieveItem(0), equalTo("1"));
+		assertThat(recentlyUsedList.retrieveItem(1), equalTo("2"));
+		assertThat(recentlyUsedList.getSize(), equalTo(2));
 	}
 }

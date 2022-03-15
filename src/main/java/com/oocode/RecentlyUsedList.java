@@ -5,38 +5,35 @@ import java.util.List;
 
 public class RecentlyUsedList {
 	List<String> phoneNumberList;
-	Boolean isEmpty;
-	String mostRecentInput;
-	String secondMostRecentInput;
-	String thirdMostRecentInput;
 
 	public RecentlyUsedList () {
-		List<String> phoneNumberList = new ArrayList<>();
-		this.phoneNumberList = phoneNumberList;
-		this.isEmpty = true;
+		this.phoneNumberList = new ArrayList<>();
 	}
 
 	public boolean isEmpty() {
-		return isEmpty;
+		if (phoneNumberList.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void addElement(String s) {
-		isEmpty = false;
-		this.thirdMostRecentInput = this.secondMostRecentInput;
-		this.secondMostRecentInput = this.mostRecentInput;
-		this.mostRecentInput = s;
-
+		removeDuplicateIfExists(s);
+		this.phoneNumberList.add(0, s);
 	}
 
 	public String retrieveItem(int i) {
-		if (i==0) {
-			return this.mostRecentInput;
-		}
-		else if (i==1) {
-			return this.secondMostRecentInput;
-		}
-		else {
-			return this.thirdMostRecentInput;
+		return this.phoneNumberList.get(i);
+	}
+
+	public int getSize() {
+		return phoneNumberList.size();
+	}
+
+	public void removeDuplicateIfExists(String s) {
+		if (this.phoneNumberList.contains(s)) {
+			this.phoneNumberList.remove(s);
 		}
 	}
 }
