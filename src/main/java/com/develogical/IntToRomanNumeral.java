@@ -14,8 +14,8 @@ public class IntToRomanNumeral {
             romanNum = "I" + nextHigher;
         }
         if (romanNum.startsWith("I") && romanNum.length() >= 3) {
-            int position = romanNum.length() - 1;
-            return romanNum
+            final int position = romanNum.length() - 1;
+            return  romanNum
                     .substring(1, position)
                     + "I"
                     + romanNum.substring(position);
