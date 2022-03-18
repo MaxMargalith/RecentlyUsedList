@@ -10,13 +10,16 @@ public class IntToRomanNumeral {
         if (romanI < 4) {
             romanNum += "I".repeat(romanI);
         } else {
-            if (mult5 == 2) {
-                return "XIV";
-            }
             String nextHigher = fromMult5Int(mult5 + 1);
             romanNum = "I" + nextHigher;
         }
-
+        if (romanNum.startsWith("I") && romanNum.length() >= 3) {
+            int position = romanNum.length() - 1;
+            return romanNum
+                    .substring(1, position)
+                    + "I"
+                    + romanNum.substring(position);
+        }
         return romanNum;
     }
 

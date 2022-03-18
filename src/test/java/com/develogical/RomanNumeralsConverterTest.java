@@ -34,8 +34,12 @@ public class RomanNumeralsConverterTest {
 		checkConversion(16, "XVI");
 		checkConversion(17, "XVII");
 		checkConversion(18, "XVIII");
-		//checkConversion(19, "XIX");
+		checkConversion(19, "XIX");
 		checkConversion(20, "XX");
+		checkConversion(21, "XXI");
+		checkConversion(22, "XXII");
+		checkConversion(23, "XXIII");
+		checkConversion(24, "XXIV");
 	}
 
 	@Test
