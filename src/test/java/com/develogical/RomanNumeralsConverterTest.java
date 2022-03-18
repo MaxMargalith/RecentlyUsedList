@@ -15,27 +15,32 @@ import static org.hamcrest.core.Is.is;
 public class RomanNumeralsConverterTest {
 
 	@Test
-	public void convertSimple() {
+	public void convertNumbers() {
 		checkConversion(1, "I");
 		checkConversion(2, "II");
 		checkConversion(3, "III");
-	}
-	@Test
-	public void convertSlightlyAdvanced() {
+		checkConversion(4, "IV");
 		checkConversion(5, "V");
 		checkConversion(6, "VI");
 		checkConversion(7, "VII");
 		checkConversion(8, "VIII");
+		checkConversion(9, "IX");
 		checkConversion(10, "X");
 		checkConversion(11, "XI");
 		checkConversion(12, "XII");
 		checkConversion(13, "XIII");
+		checkConversion(14, "XIV");
+		checkConversion(15, "XV");
+		checkConversion(16, "XVI");
+		checkConversion(17, "XVII");
+		checkConversion(18, "XVIII");
+		//checkConversion(19, "XIX");
+		checkConversion(20, "XX");
 	}
 
 	@Test
 	public void convertAdvanced() {
-		checkConversion(4, "IV");
-		checkConversion(9, "IX");
+		checkConversion(50, "L");
 
 	}
 

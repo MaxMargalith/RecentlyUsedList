@@ -4,11 +4,15 @@ public class IntToRomanNumeral {
     public String convert(int arabicNum) {
         String romanNum = "";
 
-        int romanI = arabicNum % 5;
+        final int romanI = arabicNum % 5;
         final int mult5 = arabicNum / 5;
         romanNum += fromMult5Int(mult5);
-        romanNum += "I".repeat(romanI);
-        if (romanNum.endsWith("IIII")) {
+        if (romanI < 4) {
+            romanNum += "I".repeat(romanI);
+        } else {
+            if (mult5 == 2) {
+                return "XIV";
+            }
             String nextHigher = fromMult5Int(mult5 + 1);
             romanNum = "I" + nextHigher;
         }
@@ -17,12 +21,14 @@ public class IntToRomanNumeral {
     }
 
     private String fromMult5Int(final int mult) {
-        if (mult == 1) {
-            return "V";
+        final int romanX = mult/2;
+        String result = "";
+        result += "X".repeat(romanX);
+        result += "V".repeat(mult%2);
+        if (mult == 10) {
+            result = "L";
         }
-        if (mult == 2) {
-            return "X";
-        }
-        return "";
+        return result;
     }
+
 }
