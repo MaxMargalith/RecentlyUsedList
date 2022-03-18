@@ -35,6 +35,7 @@ public class RomanNumeralsConverterTest {
 	@Test
 	public void convertAdvanced() {
 		checkConversion(4, "IV");
+		checkConversion(9, "IX");
 
 	}
 
