@@ -14,13 +14,32 @@ import static org.hamcrest.core.Is.is;
 
 public class RomanNumeralsConverterTest {
 
-
 	@Test
 	public void convertSimple() {
-		assertThat(new IntToRomanNumeral().convert(1), equalTo("I"));
-		assertThat(new IntToRomanNumeral().convert(2), equalTo("II"));
-		assertThat(new IntToRomanNumeral().convert(3), equalTo("III"));
+		checkConversion(1, "I");
+		checkConversion(2, "II");
+		checkConversion(3, "III");
+	}
+	@Test
+	public void convertSlightlyAdvanced() {
+		checkConversion(5, "V");
+		checkConversion(6, "VI");
+		checkConversion(7, "VII");
+		checkConversion(8, "VIII");
+		checkConversion(10, "X");
+		checkConversion(11, "XI");
+		checkConversion(12, "XII");
+		checkConversion(13, "XIII");
 	}
 
+	@Test
+	public void convertAdvanced() {
+		checkConversion(4, "IV");
+
+	}
+
+	private void checkConversion(int arabicNum, String romanNum) {
+		assertThat(new IntToRomanNumeral().convert(arabicNum), equalTo(romanNum));
+	}
 
 }
